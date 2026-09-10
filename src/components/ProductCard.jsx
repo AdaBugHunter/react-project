@@ -1,9 +1,8 @@
-function ProductCard({ title, price, category }) {
+function ProductCard({ name, price }) {
   return (
     <div>
-      <h3>{title}</h3>
-      <p>{category}</p>
-      <strong>{price}</strong>
+      <h3>{name}</h3>
+      <p>${price}</p>
     </div>
   );
 }
