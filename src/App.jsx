@@ -4,8 +4,13 @@ import ProductList from './components/ProductList.jsx';
 import CourseList from './components/CourseList.jsx';
 import Counter from './components/Counter';
 import MessageToggle from './components/MessageToggle';
+import NameInput from './components/NameInput';
 
 function App() {
+  const handleNameChange = (name) => {
+    console.log('Name changed:', name);
+  };
+
   return (
     <div>
       <h1>React State Practice</h1>
@@ -19,6 +24,11 @@ function App() {
       <section>
         <h2>Message Toggle</h2>
         <MessageToggle />
+      </section>
+
+      <section>
+        <h2>Name Input</h2>
+        <NameInput onNameChange={handleNameChange} onChange={handleNameChange} />
       </section>
 
       {/* UI Components */}
