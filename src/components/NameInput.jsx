@@ -4,6 +4,7 @@ const NameInput = ({ onNameChange }) => {
   const [name, setName] = useState('');
 
   return (
+    <>
     <input
       type="text"
       value={name}
@@ -12,6 +13,8 @@ const NameInput = ({ onNameChange }) => {
         onNameChange(e.target.value);
       }}
     />
+    <p>Hello, {name}!</p>
+    </>
   );
 };
 
