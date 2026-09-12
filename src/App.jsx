@@ -1,41 +1,46 @@
-import Header from './components/Header.jsx';
-import ProductCard from './components/ProductCard.jsx';
-import ProductList from './components/ProductList.jsx';
-import CourseList from './components/CourseList.jsx';
-import Counter from './components/Counter';
-import MessageToggle from './components/MessageToggle';
+// import Header from './components/Header.jsx';
+// import ProductCard from './components/ProductCard.jsx';
+// import ProductList from './components/ProductList.jsx';
+// import CourseList from './components/CourseList.jsx';
+// import Counter from './components/Counter';
+// import MessageToggle from './components/MessageToggle';
 import NameInput from './components/NameInput';
+import StudentForm from './components/StudentForm.jsx';
 
 function App() {
-  const handleNameChange = (name) => {
-    console.log('Name changed:', name);
-  };
+    const handleNameChange = (name) => {
+        console.log('Name changed:', name);
+    };
 
-  return (
-    <div>
-      <h1>React State Practice</h1>
+    return (
+        <div>
+            <h1>React State Practice</h1>
 
-      {/* State Components */}
-      <section>
+            {/* State Components */}
+            {/* <section>
         <h2>Counter</h2>
         <Counter />
-      </section>
+      </section> */}
 
-      <section>
+            {/* <section>
         <h2>Message Toggle</h2>
         <MessageToggle />
-      </section>
+      </section> */}
 
-      <section>
-        <h2>Name Input</h2>
-        <NameInput onNameChange={handleNameChange} onChange={handleNameChange} />
-      </section>
+            <section>
+                <h2>Name Input</h2>
+                <NameInput onNameChange={handleNameChange} onChange={handleNameChange} />
+            </section>
+            {/* Student Form */}
+            <section>
+                <StudentForm />
+            </section>
 
-      {/* UI Components */}
-      <Header />
+            {/* UI Components */}
+            {/* <Header /> */}
 
-      {/* Manual ProductCards*/}
-      <section>
+            {/* Manual ProductCards*/}
+            {/* <section>
         <h2>Manual Product Cards</h2>
         <ProductCard
           title="Chocolate Cupcake"
@@ -52,21 +57,21 @@ function App() {
           price="$30"
           category="Cake"
         />
-      </section>
+      </section> */}
 
-      {/* ProductList*/}
-      <section>
+            {/* ProductList*/}
+            {/* <section>
         <h2>Product List</h2>
         <ProductList />
-      </section>
+      </section> */}
 
-      {/* CourseList*/}
-      <section>
+            {/* CourseList*/}
+            {/* <section>
         <h2>Course List</h2>
         <CourseList />
-      </section>
-    </div>
-  );
+      </section> */}
+        </div>
+    );
 }
 
 export default App;
