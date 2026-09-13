@@ -7,7 +7,7 @@ import MessageToggle from './components/MessageToggle.jsx';
 import NameInput from './components/NameInput.jsx';
 import StudentForm from './components/StudentForm.jsx';
 import LoginStatus from './components/LoginStatus.jsx';
-import StockStatus from './StockStatus.jsx';
+import StockStatus from './components/StockStatus.jsx';
 
 function App() {
   const handleNameChange = (name) => {
