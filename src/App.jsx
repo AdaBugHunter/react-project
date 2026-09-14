@@ -8,6 +8,8 @@ import NameInput from './components/NameInput.jsx';
 import StudentForm from './components/StudentForm.jsx';
 import LoginStatus from './components/LoginStatus.jsx';
 import StockStatus from './StockStatus.jsx';
+import TaskManager from "./components/TaskManager.jsx";
+import CartManager from "./components/CartManager.jsx";
 
 function App() {
   const handleNameChange = (name) => {
@@ -34,7 +36,7 @@ function App() {
         <NameInput onNameChange={handleNameChange} onChange={handleNameChange} />
       </section>
 
-     {/* Login Status */}
+      {/* Login Status */}
       <section>
         <h2>Login Status</h2>
         <LoginStatus />
@@ -87,6 +89,16 @@ function App() {
       <section>
         <h2>Course List</h2>
         <CourseList />
+      </section>
+
+      {/* Task Manager */}
+      <section>
+        <TaskManager />
+      </section>
+
+      {/* Cart Manager */}
+      <section>
+        <CartManager />
       </section>
     </div>
   );
