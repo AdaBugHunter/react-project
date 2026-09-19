@@ -7,9 +7,10 @@ import MessageToggle from './components/MessageToggle.jsx';
 import NameInput from './components/NameInput.jsx';
 import StudentForm from './components/StudentForm.jsx';
 import LoginStatus from './components/LoginStatus.jsx';
-import StockStatus from './StockStatus.jsx';
+import StockStatus from './components/StockStatus.jsx';
 import TaskManager from "./components/TaskManager.jsx";
 import CartManager from "./components/CartManager.jsx";
+import NameTracker from './components/NameTracker.jsx';
 
 function App() {
   const handleNameChange = (name) => {
@@ -21,6 +22,13 @@ function App() {
       <h1>React State Practice</h1>
 
       {/* State Components */}
+
+      {/* Name Tracker */}
+      <section>
+        <h2>Name Tracker</h2>
+        <NameTracker />
+      </section>
+
       <section>
         <h2>Counter</h2>
         <Counter />
