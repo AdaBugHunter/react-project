@@ -11,6 +11,8 @@ import StockStatus from './components/StockStatus.jsx';
 import TaskManager from "./components/TaskManager.jsx";
 import CartManager from "./components/CartManager.jsx";
 import NameTracker from './components/NameTracker.jsx';
+import LoadUsers from './components/LoadUsers.jsx';
+import LoadProducts from './components/LoadProfucts.jsx';
 
 function App() {
   const handleNameChange = (name) => {
@@ -60,6 +62,18 @@ function App() {
       <section>
         <h2>Stock Status</h2>
         <StockStatus />
+      </section>
+
+      {/* Load Users */}
+      <section>
+        <h2>Load Users</h2>
+        <LoadUsers />
+      </section>
+
+      {/* Load Products */}
+      <section>
+        <h2>Load Products</h2>
+        <LoadProducts />
       </section>
 
       <hr />
