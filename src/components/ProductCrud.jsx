@@ -23,18 +23,19 @@ function ProductCrud() {
   // READ: Data fetch karo
   // ============================
   useEffect(() => {
-    setLoading(true);
     fetch('/products.json')
       .then((res) => {
         if (!res.ok) throw new Error('Failed to load products');
         return res.json();
       })
       .then((data) => {
+        console.log("data",data);
         setProducts(data);
-        setLoading(false);
       })
       .catch((err) => {
         setError(err.message);
+      })
+      .finally(() => {
         setLoading(false);
       });
   }, []);

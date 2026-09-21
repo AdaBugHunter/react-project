@@ -23,11 +23,11 @@ function App() {
   return (
     <div>
      
-      /* Product CRUD Manager */
+      {/* Product CRUD Manager */}
       <section>
         <ProductCrud />
       </section>
-
+      
        <h1>React State Practice</h1>
 
       {/* State Components */}
