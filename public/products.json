@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "Chocolate Cupcake",
+    "category": {
+      "id": 1,
+      "name": "Cupcake"
+    },
+    "price": {
+      "amount": 6,
+      "currency": "USD"
+    },
+    "stock": {
+      "quantity": 10,
+      "status": "available"
+    },
+    "supplier": {
+      "name": "Sweet House",
+      "city": "Lahore"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Vanilla Cupcake",
+    "category": {
+      "id": 1,
+      "name": "Cupcake"
+    },
+    "price": {
+      "amount": 5,
+      "currency": "USD"
+    },
+    "stock": {
+      "quantity": 6,
+      "status": "available"
+    },
+    "supplier": {
+      "name": "Bake Point",
+      "city": "Islamabad"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Red Velvet Cake",
+    "category": {
+      "id": 2,
+      "name": "Cake"
+    },
+    "price": {
+      "amount": 28,
+      "currency": "USD"
+    },
+    "stock": {
+      "quantity": 4,
+      "status": "low-stock"
+    },
+    "supplier": {
+      "name": "Cake Studio",
+      "city": "Jhelum"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Strawberry Cupcake",
+    "category": {
+      "id": 1,
+      "name": "Cupcake"
+    },
+    "price": {
+      "amount": 7,
+      "currency": "USD"
+    },
+    "stock": {
+      "quantity": 0,
+      "status": "out-of-stock"
+    },
+    "supplier": {
+      "name": "Sweet House",
+      "city": "Lahore"
+    }
+  }
+]
