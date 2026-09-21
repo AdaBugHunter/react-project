@@ -13,6 +13,7 @@ import CartManager from "./components/CartManager.jsx";
 import NameTracker from './components/NameTracker.jsx';
 import LoadUsers from './components/LoadUsers.jsx';
 import LoadProducts from './components/LoadProfucts.jsx';
+import ProductCrud from './components/ProductCrud.jsx';
 
 function App() {
   const handleNameChange = (name) => {
@@ -21,7 +22,13 @@ function App() {
 
   return (
     <div>
-      <h1>React State Practice</h1>
+     
+      /* Product CRUD Manager */
+      <section>
+        <ProductCrud />
+      </section>
+
+       <h1>React State Practice</h1>
 
       {/* State Components */}
 
