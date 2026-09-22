@@ -14,6 +14,7 @@ import NameTracker from './components/NameTracker.jsx';
 import LoadUsers from './components/LoadUsers.jsx';
 import LoadProducts from './components/LoadProfucts.jsx';
 import ProductCrud from './components/ProductCrud.jsx';
+import ApiProducts from './components/ApiProducts.jsx';
 
 function App() {
   const handleNameChange = (name) => {
@@ -22,7 +23,12 @@ function App() {
 
   return (
     <div>
-     
+     {/* API Products */}
+      <section>
+        <h2>API Products</h2>
+        <ApiProducts />
+      </section>
+
       {/* Product CRUD Manager */}
       <section>
         <ProductCrud />
