@@ -7,24 +7,27 @@ const ApiProducts = () => {
 
 useEffect(() => {
 
-  fetch('https://dummyjson.com/products')
-    .then((response) => {
+  const fetchProducts = async() => {
+    try {
+      setLoading(true);
+      setError('');
+
+      const response = await fetch('https://dummyjson.com/products?limit=8');
       if (!response.ok) {
         throw new Error('Failed to fetch products');
       }
+      
+      const data= await response.json();
 
-      return response.json();
-    })
-    .then((data) => {
-        console.log(data);
+      console.log('data');
       setProducts(data.products);
-    })
-    .catch((error) => {
+    } catch (error){
       setError(error.message);
-    })
-    .finally(()=>{
-        setLoading(false);
-    });
+    } finally {
+      setLoading(false);
+    }
+  };
+  fetchProducts();
 }, []);
 
   if (loading) return <p>Loading products...</p>;
@@ -40,13 +43,14 @@ useEffect(() => {
           <h3>{product.title}</h3>
           <p>Category: {product.category}</p>
           <p>Price: ${product.price}</p>
-          <p>Stock: {product.stock}</p>
+          <p>Dimensions: {product.dimensions.height}</p>
+           <p>Dimensions: {product.dimensions.width}</p>
 
           {(product.reviews || []).map((review, index) => (
             <div key={index}>
               <p>Rating: {review.rating}</p>
               <p>Comment: {review.comment}</p>
-              <p>Reviewer: {review.reviewer}</p>
+              <p>Reviewer: {review.reviewerName}</p>
             </div>
           ))}
         </div>
