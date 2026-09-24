@@ -92,6 +92,35 @@ const ApiProducts = () => {
     }
   };
 
+  //Delete -del a product
+  const deleteProduct = async (id) => {
+  try {
+    setError('');
+
+    const response = await fetch(
+      `https://dummyjson.com/products/${id}`,
+      {
+        method: 'DELETE'
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error('Failed to delete product');
+    }
+
+    const data = await response.json();
+
+    console.log(data);
+
+    setProducts((currentProducts) =>
+      currentProducts.filter(
+        (product) => product.id !== id
+      )
+    );
+  } catch (error) {
+    setError(error.message);
+  }
+};
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -178,6 +207,10 @@ const ApiProducts = () => {
               disabled={updatingId === product.id}
             >
               {updatingId === product.id ? 'Updating...' : 'Update Price +10'}
+            </button>
+
+            <button onClick={() => deleteProduct(product.id)}>
+              Delete Product
             </button>
 
             {product.dimensions && (
