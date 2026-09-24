@@ -2,68 +2,100 @@ import { useState, useEffect } from 'react';
 
 const ApiProducts = () => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [creating, setCreating] = useState(false);
+  const [updatingId, setUpdatingId] = useState(null);
+
   const [title, setTitle] = useState('');
   const [price, setPrice] = useState('');
   const [category, setCategory] = useState('');
 
-useEffect(() => {
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        setLoading(true);
+        setError('');
 
-  const fetchProducts = async() => {
+        const response = await fetch('https://dummyjson.com/products?limit=8');
+        if (!response.ok) {
+          throw new Error('Failed to fetch products');
+        }
+
+        const data = await response.json();
+        setProducts(data.products);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  // POST - create new product
+  const createProduct = async (newProduct) => {
     try {
-      setLoading(true);
+      setCreating(true);
       setError('');
 
-      const response = await fetch('https://dummyjson.com/products?limit=8');
-      if (!response.ok) {
-        throw new Error('Failed to fetch products');
-      }
-      
-      const data= await response.json();
+      const response = await fetch('https://dummyjson.com/products/add', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newProduct),
+      });
 
-      console.log('data');
-      setProducts(data.products);
-    } catch (error){
+      if (!response.ok) throw new Error('Failed to create data');
+
+      const data = await response.json();
+
+      setProducts((currentProducts) => [...currentProducts, data]);
+    } catch (error) {
       setError(error.message);
     } finally {
-      setLoading(false);
+      setCreating(false);
     }
   };
-  fetchProducts();
-}, []);
 
-// Create a new product
-const createProduct = async (newProduct) => {
-   try {
-       setCreating(true);
-       setError('');
+  // PATCH - update existing product
+  const updateProduct = async (id, updatedFields) => {
+    try {
+      setUpdatingId(id);
+      setError('');
 
-       const response = await fetch('https://dummyjson.com/products/add',{
-        method: 'POST',
-        headers:{'Content-Type':'application/json'},
-        body: JSON.stringify(newProduct)
-       });
-       
-       if(!response.ok) throw new Error('Failed to create data');
-       const data = await response.json;
+      const response = await fetch(`https://dummyjson.com/products/${id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedFields),
+      });
 
-       // Append new product to the end of the list
-       setProducts((currentProducts)=>[
-        ...currentProducts,
-        data,
-      ]);
-   } catch(error){
-    setError(error.message);
-   } finally{
-    setLoading(false);
-   }
-};
+      if (!response.ok) {
+        throw new Error('Failed to update product');
+      }
 
-const handleSubmit =(e)=>{
-  e.preventDefault();
-   if (!title.trim() || !price || !category.trim()) {
+      const data = await response.json();
+      console.log('updated product:', data);
+
+      // Replace the corrected product
+      setProducts((currentProducts) =>
+        currentProducts.map((product) =>
+          product.id === data.id ? data : product
+        )
+      );
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setUpdatingId(null);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!title.trim() || !price || !category.trim()) {
       setError('Please fill in title, price, and category.');
       return;
     }
@@ -74,13 +106,14 @@ const handleSubmit =(e)=>{
       category,
     });
 
-    // Reset form
     setTitle('');
     setPrice('');
     setCategory('');
-}
-    if(loading) return <p>Loading Products..</p>;
-     return (
+  };
+
+  if (loading) return <p>Loading Products..</p>;
+
+  return (
     <div style={{ padding: '1rem' }}>
       <h2>Add Product</h2>
 
@@ -137,6 +170,15 @@ const handleSubmit =(e)=>{
             <h3>{product.title}</h3>
             <p>Category: {product.category}</p>
             <p>Price: ${product.price}</p>
+
+            <button
+              onClick={() =>
+                updateProduct(product.id, { price: product.price + 10 })
+              }
+              disabled={updatingId === product.id}
+            >
+              {updatingId === product.id ? 'Updating...' : 'Update Price +10'}
+            </button>
 
             {product.dimensions && (
               <>
