@@ -15,6 +15,7 @@ import LoadUsers from './components/LoadUsers.jsx';
 import LoadProducts from './components/LoadProfucts.jsx';
 import ProductCrud from './components/ProductCrud.jsx';
 import ApiProducts from './components/ApiProducts.jsx';
+import ProductManager from './components/ProductManager.jsx'
 
 function App() {
   const handleNameChange = (name) => {
@@ -23,6 +24,11 @@ function App() {
 
   return (
     <div>
+
+      {/* Product Manager */}
+      <section>
+        <ProductManager/>
+      </section>
      {/* API Products */}
       <section>
         <h2>API Products</h2>
