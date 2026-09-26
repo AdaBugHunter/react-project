@@ -1,23 +1,11 @@
-import ProductCard from './ProductCard.jsx';
-
-const products = [
-  { id: 1, name: 'Keyboard', price: 120 },
-  { id: 2, name: 'Mouse', price: 45 },
-  { id: 3, name: 'Headphones', price: 80 },
-];
-
-function ProductList() {
+const ProductList = ({ products }) => {
   return (
     <div>
       {products.map((product) => (
-        <ProductCard
-          key={product.id}
-          name={product.name}
-          price={product.price}
-        />
+        <p key={product.id}>{product.name}</p>
       ))}
     </div>
   );
-}
+};
 
 export default ProductList;
