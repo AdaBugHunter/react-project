@@ -1,148 +1,157 @@
-import Header from './components/Header.jsx';
-import ProductCard from './components/ProductCard.jsx';
-import ProductList from './components/ProductList.jsx';
-import CourseList from './components/CourseList.jsx';
-import Counter from './components/Counter.jsx';
-import MessageToggle from './components/MessageToggle.jsx';
-import NameInput from './components/NameInput.jsx';
-import StudentForm from './components/StudentForm.jsx';
-import LoginStatus from './components/LoginStatus.jsx';
-import StockStatus from './components/StockStatus.jsx';
-import TaskManager from "./components/TaskManager.jsx";
-import CartManager from "./components/CartManager.jsx";
-import NameTracker from './components/NameTracker.jsx';
-import LoadUsers from './components/LoadUsers.jsx';
-import LoadProducts from './components/LoadProfucts.jsx';
-import ProductCrud from './components/ProductCrud.jsx';
-import ApiProducts from './components/ApiProducts.jsx';
-import ProductManager from './components/ProductManager.jsx'
+// import Header from './components/Header.jsx';
+// import ProductCard from './components/ProductCard.jsx';
+// import ProductList from './components/ProductList.jsx';
+// import CourseList from './components/CourseList.jsx';
+// import Counter from './components/Counter.jsx';
+// import MessageToggle from './components/MessageToggle.jsx';
+// import NameInput from './components/NameInput.jsx';
+// import StudentForm from './components/StudentForm.jsx';
+// import LoginStatus from './components/LoginStatus.jsx';
+// import StockStatus from './components/StockStatus.jsx';
+// import TaskManager from "./components/TaskManager.jsx";
+// import CartManager from "./components/CartManager.jsx";
+// import NameTracker from './components/NameTracker.jsx';
+// import LoadUsers from './components/LoadUsers.jsx';
+// import LoadProducts from './components/LoadProfucts.jsx';
+// import ProductCrud from './components/ProductCrud.jsx';
+// import ApiProducts from './components/ApiProducts.jsx';
+// import ProductManager from './components/ProductManager.jsx'
+import AppRoutes from "./routes/AppRoutes";
+import Navbar from "./components/Navbar";
 
 function App() {
-  const handleNameChange = (name) => {
-    console.log('Name changed:', name);
-  };
+  return(
+   <>
+    <Navbar />
+    <AppRoutes />
+   </>
+  
+  )
+  // const handleNameChange = (name) => {
+  //   console.log('Name changed:', name);
+  // };
 
-  return (
-    <div>
+  // return (
+  //   <div>
 
-      {/* Product Manager */}
-      <section>
-        <ProductManager/>
-      </section>
-     {/* API Products */}
-      <section>
-        <h2>API Products</h2>
-        <ApiProducts />
-      </section>
+  //     {/* Product Manager */}
+  //     <section>
+  //       <ProductManager/>
+  //     </section>
+  //    {/* API Products */}
+  //     <section>
+  //       <h2>API Products</h2>
+  //       <ApiProducts />
+  //     </section>
 
-      {/* Product CRUD Manager */}
-      <section>
-        <ProductCrud />
-      </section>
+  //     {/* Product CRUD Manager */}
+  //     <section>
+  //       <ProductCrud />
+  //     </section>
       
-       <h1>React State Practice</h1>
+  //      <h1>React State Practice</h1>
 
-      {/* State Components */}
+  //     {/* State Components */}
 
-      {/* Name Tracker */}
-      <section>
-        <h2>Name Tracker</h2>
-        <NameTracker />
-      </section>
+  //     {/* Name Tracker */}
+  //     <section>
+  //       <h2>Name Tracker</h2>
+  //       <NameTracker />
+  //     </section>
 
-      <section>
-        <h2>Counter</h2>
-        <Counter />
-      </section>
+  //     <section>
+  //       <h2>Counter</h2>
+  //       <Counter />
+  //     </section>
 
-      <section>
-        <h2>Message Toggle</h2>
-        <MessageToggle />
-      </section>
+  //     <section>
+  //       <h2>Message Toggle</h2>
+  //       <MessageToggle />
+  //     </section>
 
-      <section>
-        <h2>Name Input</h2>
-        <NameInput onNameChange={handleNameChange} onChange={handleNameChange} />
-      </section>
+  //     <section>
+  //       <h2>Name Input</h2>
+  //       <NameInput onNameChange={handleNameChange} onChange={handleNameChange} />
+  //     </section>
 
-      {/* Login Status */}
-      <section>
-        <h2>Login Status</h2>
-        <LoginStatus />
-      </section>
+  //     {/* Login Status */}
+  //     <section>
+  //       <h2>Login Status</h2>
+  //       <LoginStatus />
+  //     </section>
 
-      {/* Student Form */}
-      <section>
-        <h2>Student Form</h2>
-        <StudentForm />
-      </section>
+  //     {/* Student Form */}
+  //     <section>
+  //       <h2>Student Form</h2>
+  //       <StudentForm />
+  //     </section>
 
-      {/* Stock Status */}
-      <section>
-        <h2>Stock Status</h2>
-        <StockStatus />
-      </section>
+  //     {/* Stock Status */}
+  //     <section>
+  //       <h2>Stock Status</h2>
+  //       <StockStatus />
+  //     </section>
 
-      {/* Load Users */}
-      <section>
-        <h2>Load Users</h2>
-        <LoadUsers />
-      </section>
+  //     {/* Load Users */}
+  //     <section>
+  //       <h2>Load Users</h2>
+  //       <LoadUsers />
+  //     </section>
 
-      {/* Load Products */}
-      <section>
-        <h2>Load Products</h2>
-        <LoadProducts />
-      </section>
+  //     {/* Load Products */}
+  //     <section>
+  //       <h2>Load Products</h2>
+  //       <LoadProducts />
+  //     </section>
 
-      <hr />
+  //     <hr />
 
-      {/* UI Components */}
-      <Header />
+  //     {/* UI Components */}
+  //     <Header />
 
-      {/* Manual ProductCards*/}
-      <section>
-        <h2>Manual Product Cards</h2>
-        <ProductCard
-          title="Chocolate Cupcake"
-          price="$6"
-          category="Cupcake"
-        />
-        <ProductCard
-          title="Vanilla Cupcake"
-          price="$5"
-          category="Cupcake"
-        />
-        <ProductCard
-          title="Red Velvet Cake"
-          price="$30"
-          category="Cake"
-        />
-      </section>
+  //     {/* Manual ProductCards*/}
+  //     <section>
+  //       <h2>Manual Product Cards</h2>
+  //       <ProductCard
+  //         title="Chocolate Cupcake"
+  //         price="$6"
+  //         category="Cupcake"
+  //       />
+  //       <ProductCard
+  //         title="Vanilla Cupcake"
+  //         price="$5"
+  //         category="Cupcake"
+  //       />
+  //       <ProductCard
+  //         title="Red Velvet Cake"
+  //         price="$30"
+  //         category="Cake"
+  //       />
+  //     </section>
 
-      {/* ProductList*/}
-      <section>
-        <h2>Product List</h2>
-        <ProductList />
-      </section>
+  //     {/* ProductList*/}
+  //     <section>
+  //       <h2>Product List</h2>
+  //       <ProductList />
+  //     </section>
 
-      {/* CourseList*/}
-      <section>
-        <h2>Course List</h2>
-        <CourseList />
-      </section>
+  //     {/* CourseList*/}
+  //     <section>
+  //       <h2>Course List</h2>
+  //       <CourseList />
+  //     </section>
 
-      {/* Task Manager */}
-      <section>
-        <TaskManager />
-      </section>
+  //     {/* Task Manager */}
+  //     <section>
+  //       <TaskManager />
+  //     </section>
 
-      {/* Cart Manager */}
-      <section>
-        <CartManager />
-      </section>
-    </div>
-  );
+  //     {/* Cart Manager */}
+  //     <section>
+  //       <CartManager />
+  //     </section>
+  //   </div>
+  // );
 }
 
 export default App;
