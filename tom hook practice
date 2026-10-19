@@ -1,0 +1,139 @@
+[1mdiff --git a/src/components/hooks-practice/DetailToggle.jsx b/src/components/hooks-practice/DetailToggle.jsx[m
+[1mnew file mode 100644[m
+[1mindex 0000000..d8292bc[m
+[1m--- /dev/null[m
+[1m+++ b/src/components/hooks-practice/DetailToggle.jsx[m
+[36m@@ -0,0 +1,17 @@[m
+[32m+[m[32mimport useToggle from "../../hooks/useToggle"[m
+[32m+[m
+[32m+[m[32mfunction DetailToggle() {[m
+[32m+[m
+[32m+[m[32m  const {isOpen, toggle} = useToggle();[m
+[32m+[m[32m  return ([m
+[32m+[m[32m    <section>[m
+[32m+[m[32m        <h2>Details</h2>[m
+[32m+[m[32m        <button type='button' onClick={toggle}>[m
+[32m+[m[32m            {isOpen ? "Hide Password" : "Show Password"}[m
+[32m+[m[32m        </button>[m
+[32m+[m[32m        {isOpen && <p>This is the details text</p>}[m
+[32m+[m[32m    </section>[m
+[32m+[m[32m  )[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mexport default DetailToggle[m
+\ No newline at end of file[m
+[1mdiff --git a/src/components/hooks-practice/PasswordToggle.jsx b/src/components/hooks-practice/PasswordToggle.jsx[m
+[1mnew file mode 100644[m
+[1mindex 0000000..68de949[m
+[1m--- /dev/null[m
+[1m+++ b/src/components/hooks-practice/PasswordToggle.jsx[m
+[36m@@ -0,0 +1,23 @@[m
+[32m+[m[32mimport useToggle from "../../hooks/useToggle"[m
+[32m+[m
+[32m+[m[32mfunction PasswordToggle() {[m
+[32m+[m[32m  const {isOpen, toggle} = useToggle();[m
+[32m+[m
+[32m+[m[32m  return ([m
+[32m+[m[32m    <section>[m
+[32m+[m[32m        <h2>Password</h2>[m
+[32m+[m[32m        <label htmlFor="practice-password">Demo Password</label>[m
+[32m+[m[32m        <input[m[41m [m
+[32m+[m[32m        id="practice-password"[m
+[32m+[m[32m        type={isOpen ? "text" : "password"}[m
+[32m+[m[32m        value="practice123"[m
+[32m+[m[32m        readOnly[m
+[32m+[m[32m        />[m
+[32m+[m[32m        <button type='button' onClick={toggle}>[m
+[32m+[m[32m          {isOpen ? "Hide password" : "Show password"}[m
+[32m+[m[32m        </button>[m
+[32m+[m[32m    </section>[m
+[32m+[m[32m  )[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mexport default PasswordToggle[m
+\ No newline at end of file[m
+[1mdiff --git a/src/components/hooks-practice/TipsToggle.jsx b/src/components/hooks-practice/TipsToggle.jsx[m
+[1mnew file mode 100644[m
+[1mindex 0000000..39b7e93[m
+[1m--- /dev/null[m
+[1m+++ b/src/components/hooks-practice/TipsToggle.jsx[m
+[36m@@ -0,0 +1,16 @@[m
+[32m+[m[32mimport useToggle from "../../hooks/useToggle"[m
+[32m+[m
+[32m+[m[32mfunction TipsToggle() {[m
+[32m+[m[32m  const {isOpen, toggle} = useToggle();[m
+[32m+[m[32m  return ([m
+[32m+[m[32m    <section>[m
+[32m+[m[32m        <h2>Tips toggle</h2>[m
+[32m+[m[32m        <button type="button" onClick={toggle}>[m
+[32m+[m[32m            {isOpen ? "Hide Tips" : "Show Tips"}[m
+[32m+[m[32m        </button>[m
+[32m+[m[32m        {isOpen && <p>Tips of toggle</p>}[m
+[32m+[m[32m    </section>[m
+[32m+[m[32m  )[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mexport default TipsToggle[m
+\ No newline at end of file[m
+[1mdiff --git a/src/hooks/useToggle.js b/src/hooks/useToggle.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..2fe141e[m
+[1m--- /dev/null[m
+[1m+++ b/src/hooks/useToggle.js[m
+[36m@@ -0,0 +1,12 @@[m
+[32m+[m[32mimport { useState } from 'react'[m
+[32m+[m
+[32m+[m[32mfunction useToggle() {[m
+[32m+[m[32m  const [isOpen, setIsOpen] = useState(false);[m[41m [m
+[32m+[m[41m  [m
+[32m+[m[32m  const toggle = () => {[m
+[32m+[m[32m    setIsOpen((previous) => !previous)[m
+[32m+[m[32m  }[m
+[32m+[m[32m  return { isOpen, toggle }[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mexport default useToggle[m
+\ No newline at end of file[m
+[1mdiff --git a/src/pages/CustomHooksPractice.jsx b/src/pages/CustomHooksPractice.jsx[m
+[1mnew file mode 100644[m
+[1mindex 0000000..cc5c0cb[m
+[1m--- /dev/null[m
+[1m+++ b/src/pages/CustomHooksPractice.jsx[m
+[36m@@ -0,0 +1,16 @@[m
+[32m+[m[32mimport PasswordToggle from "../components/hooks-practice/PasswordToggle";[m
+[32m+[m[32mimport DetailToggle from "../components/hooks-practice/DetailToggle";[m
+[32m+[m[32mimport TipsToggle from "../components/hooks-practice/TipsToggle";[m
+[32m+[m[41m [m
+[32m+[m[32m function CustomHooksPractice() {[m
+[32m+[m[32m   return ([m
+[32m+[m[32m     <main>[m
+[32m+[m[32m        <h1>Custom Hooks</h1>[m
+[32m+[m[32m        <PasswordToggle />[m
+[32m+[m[32m        <DetailToggle />[m
+[32m+[m[32m        <TipsToggle />[m
+[32m+[m[32m     </main>[m
+[32m+[m[32m   )[m
+[32m+[m[32m }[m
+[32m+[m[41m [m
+[32m+[m[32m export default CustomHooksPractice[m
+\ No newline at end of file[m
+[1mdiff --git a/src/routes/AppRoutes.jsx b/src/routes/AppRoutes.jsx[m
+[1mindex 43041d6..64b1cfb 100644[m
+[1m--- a/src/routes/AppRoutes.jsx[m
+[1m+++ b/src/routes/AppRoutes.jsx[m
+[36m@@ -6,6 +6,7 @@[m [mimport ProductDetail from '../pages/ProductDetail'[m
+ import NotFound from '../pages/NotFound'[m
+ import CompositionPractice from '../pages/CompositionPractice'[m
+ import ContextPractice from '../pages/ContextPractice'[m
+[32m+[m[32mimport CustomHooksPractice from '../pages/CustomHooksPractice'[m
+ [m
+ function AppRoutes() {[m
+   return ([m
+[36m@@ -17,6 +18,7 @@[m [mfunction AppRoutes() {[m
+     <Route path='*' element={<NotFound />}/>[m
+     <Route path="/composition-practice" element={<CompositionPractice />} />[m
+     <Route path="/context-practice" element={<ContextPractice />} />[m
+[32m+[m[32m    <Route path="/custom-hooks-practice" element={<CustomHooksPractice />}></Route>[m
+ [m
+    </Routes> [m
+   )[m
