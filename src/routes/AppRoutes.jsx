@@ -6,6 +6,7 @@ import ProductDetail from '../pages/ProductDetail'
 import NotFound from '../pages/NotFound'
 import CompositionPractice from '../pages/CompositionPractice'
 import ContextPractice from '../pages/ContextPractice'
+import CustomHooksPractice from '../pages/CustomHooksPractice'
 
 function AppRoutes() {
   return (
@@ -17,6 +18,7 @@ function AppRoutes() {
     <Route path='*' element={<NotFound />}/>
     <Route path="/composition-practice" element={<CompositionPractice />} />
     <Route path="/context-practice" element={<ContextPractice />} />
+    <Route path="/custom-hooks-practice" element={<CustomHooksPractice />}></Route>
 
    </Routes> 
   )
