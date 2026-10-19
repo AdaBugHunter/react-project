@@ -7,7 +7,7 @@ function DetailToggle() {
     <section>
         <h2>Details</h2>
         <button type='button' onClick={toggle}>
-            {isOpen ? "Hide Password" : "Show Password"}
+            {isOpen ? "Hide details" : "Show details"}
         </button>
         {isOpen && <p>This is the details text</p>}
     </section>
