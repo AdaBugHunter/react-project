@@ -10,7 +10,7 @@ function ClickTracker() {
   return (
     <div>
         <h4>Click tracker</h4>
-        <button ref={clicksRef} type='button' onClick={trackClick}>Track click</button>
+        <button type='button' onClick={trackClick}>Track click</button>
     </div>
   )
 }
