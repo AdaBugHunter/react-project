@@ -9,7 +9,7 @@ function ProductList({ products, onSelect }) {
       ) : (
         <ul>
           {products.map((product) => (
-            <li key={product.id} onClick={() => onSelect?.(product)}>
+            <li key={product.id} >
               {product.name}
               <button type="button" onClick={() => onSelect(product.name)}>
                 Select
